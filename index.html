@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        span {
+            color: red;
+            font-size: 50px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body align='center' style="background-color: black;">
+    <h1 style="color: white;">TIME</h1>
+    <div style="background-color: cyan; color: red;  width: 30%;  margin: 0px auto;">
+        <span id="hrs"></span>
+        <span>:</span>
+        <span id="Min"></span>
+        <span>:</span>
+        <span id="Sec"></span>
+        <span>:</span>
+        <span id="ampm"></span>
+    </div>
+
+
+    <script>
+        function Time() {
+            let hours = new Date().getHours();
+            let mins = new Date().getMinutes();
+            let secs = new Date().getSeconds();
+            if (hours >= 12) {
+                document.getElementById('ampm').innerHTML = 'PM';
+            }
+            else {
+                document.getElementById('ampm').innerHTML = 'AM';
+            }
+            if (hours > 12) {
+                hours = hours - 12;
+                hours = `${0}` + `${hours}`;
+            }
+            if (mins < 10) {
+                mins = `${0}` + `${mins}`
+            }
+            if (secs < 10) {
+                secs = `${0}` + `${secs}`
+            }
+            document.getElementById('hrs').innerHTML = hours;
+            document.getElementById('Min').innerHTML = mins;
+            document.getElementById('Sec').innerHTML = secs;
+        }
+        setInterval(Time, 1000)
+    </script>
+</body>
+
+</html>
